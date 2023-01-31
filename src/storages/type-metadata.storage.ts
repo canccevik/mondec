@@ -1,8 +1,9 @@
 import { Type } from '../interfaces'
-import { SchemaMetadata } from '../metadata'
+import { PropertyMetadata, SchemaMetadata } from '../metadata'
 
 class TypeMetadataStorageHost {
   private schemas = new Array<SchemaMetadata>()
+  private properties = new Array<PropertyMetadata>()
 
   public addSchemaMetadata(metadata: SchemaMetadata): void {
     this.schemas.push(metadata)
@@ -10,6 +11,16 @@ class TypeMetadataStorageHost {
 
   public getSchemaMetadataByTarget<T>(target: Type<T>): SchemaMetadata | undefined {
     return this.schemas.find((schema) => schema.target === target)
+  }
+
+  public addPropertyMetadata(metadata: PropertyMetadata): void {
+    this.properties.push(metadata)
+  }
+
+  public getClassFieldsByPredicate(
+    belongsToClass: (item: PropertyMetadata) => boolean
+  ): PropertyMetadata[] {
+    return this.properties.filter(belongsToClass)
   }
 }
 
