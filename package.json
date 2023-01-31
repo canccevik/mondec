@@ -1,11 +1,14 @@
 {
   "name": "mondec",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "",
   "author": "Can Çevik <mazlumcancevik@gmail.com>",
   "license": "MIT",
   "keywords": [],
   "main": "dist/src/index.js",
+  "files": [
+    "dist/src"
+  ],
   "scripts": {
     "build": "tsc",
     "build:dev": "tsc --watch",
@@ -38,5 +41,8 @@
   "homepage": "https://github.com/canccevik/mondec#readme",
   "dependencies": {
     "mongoose": "^6.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
