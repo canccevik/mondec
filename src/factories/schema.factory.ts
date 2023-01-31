@@ -12,7 +12,7 @@ export class SchemaFactory {
 
     const schema = new Schema(
       Object.assign(
-        {},
+        (target as any).schema,
         ...propertyMetadata.map((item) => {
           return { [item['propertyKey']]: item.options }
         })
