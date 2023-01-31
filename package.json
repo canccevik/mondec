@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/canccevik/mondec/issues"
   },
-  "homepage": "https://github.com/canccevik/mondec#readme"
+  "homepage": "https://github.com/canccevik/mondec#readme",
+  "dependencies": {
+    "mongoose": "^6.9.0"
+  }
 }
