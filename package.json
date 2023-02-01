@@ -1,10 +1,14 @@
 {
   "name": "mondec",
-  "version": "0.1.5",
-  "description": "",
+  "version": "0.1.6",
+  "description": "Class based schema definitions for mongoose.",
   "author": "Can Çevik <mazlumcancevik@gmail.com>",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "mongoose",
+    "schema",
+    "decorator"
+  ],
   "main": "dist/src/index.js",
   "files": [
     "dist/src"
