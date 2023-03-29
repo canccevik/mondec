@@ -1,7 +1,7 @@
 {
   "name": "mondec",
-  "version": "0.1.6",
-  "description": "Class based schema definitions for mongoose.",
+  "version": "0.1.7",
+  "description": "🗄️Create simple and clean class-based Mongoose schemas with TypeScript decorators.",
   "author": "Can Çevik <mazlumcancevik@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -10,6 +10,7 @@
     "decorator"
   ],
   "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist/src"
   ],

@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/OOd3beV.jpg" alt="Mondec Logo" width="500" height="170"/>
 </p>
 
-<p align="center">Class based schema definitions for mongoose.</p>
+<p align="center">🗄️Create simple and clean class-based Mongoose schemas with TypeScript decorators.</p>
 
 ## Features
 
