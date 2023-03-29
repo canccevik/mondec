@@ -55,7 +55,7 @@ class User {
 
 const userSchema = SchemaFactory.createForClass<IUser>(User)
 
-const UserModel = mongoose.model('users', userSchema)
+const userModel = mongoose.model<IUser>('users', userSchema)
 ```
 
 ## Contributing
