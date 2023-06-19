@@ -39,4 +39,12 @@ describe('Schema Factory', () => {
 
     expect(adultUsers.find((x) => x.age < 18)).toBe(undefined)
   })
+
+  it('should schema pre hook works correctly', async () => {
+    const createUser = async (): Promise<void> => {
+      await UserModel.create({ username: 'kylie', age: 60 })
+    }
+
+    await expect(createUser()).rejects.toThrow('50 years and over are not allowed to register!')
+  })
 })

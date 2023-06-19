@@ -1,6 +1,6 @@
 import mongoose, { Model } from 'mongoose'
 
-import { Method, Prop, Schema, SchemaFactory, Static } from '../../src'
+import { Method, MongooseNextFunc, PreHook, Prop, Schema, SchemaFactory, Static } from '../../src'
 
 interface IUser {
   username: string
@@ -38,8 +38,18 @@ class User {
 
   @Static()
   public async getAdults(): Promise<UserDocument[]> {
-    const userModel = this as unknown as IUserModel
-    return userModel.find({ age: { $gte: 18 } })
+    const _this = this as unknown as IUserModel
+    return _this.find({ age: { $gte: 18 } })
+  }
+
+  @PreHook('save')
+  public save(next: MongooseNextFunc): void {
+    const _this = this as unknown as UserDocument
+
+    if (_this.age >= 50) {
+      next(new Error('50 years and over are not allowed to register!'))
+    }
+    next()
   }
 }
 
