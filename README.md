@@ -28,12 +28,29 @@ You need to enable emitting decorator metadata in your Typescript config. Add th
 ## Usage
 
 ```ts
-import mongoose from 'mongoose'
-import { Prop, Schema, SchemaFactory } from 'mondec'
+import mongoose, { Model } from 'mongoose'
+import {
+  Method,
+  MongooseNextFunc,
+  PostHook,
+  PreHook,
+  Prop,
+  Schema,
+  SchemaFactory,
+  Static
+} from 'mondec'
 
 interface IUser {
   username: string
   age: number
+}
+
+interface IUserSchema extends IUser {
+  getBirthYear(): number
+}
+
+interface IUserModel extends Model<IUserSchema> {
+  getAdults(): UserDocument[]
 }
 
 @Schema({
@@ -42,20 +59,48 @@ interface IUser {
 class User {
   @Prop({
     type: String,
+    unique: true,
     required: true
   })
   public username!: string
 
   @Prop({
-    type: Number,
-    required: true
+    type: Number
   })
   public age!: number
+
+  @Method()
+  public getBirthYear(): number {
+    return new Date().getFullYear() - this.age
+  }
+
+  @Static()
+  public async getAdults(): Promise<UserDocument[]> {
+    const _this = this as unknown as IUserModel
+    return _this.find({ age: { $gte: 18 } })
+  }
+
+  @PreHook('save')
+  public save(next: MongooseNextFunc): void {
+    const _this = this as unknown as UserDocument
+
+    if (_this.age >= 50) {
+      next(new Error('50 years and over are not allowed to register!'))
+    }
+    next()
+  }
+
+  @PostHook('findOne')
+  public findOne(user: UserDocument): void {
+    if (!user) {
+      throw new Error('User cannot found!')
+    }
+  }
 }
 
-const userSchema = SchemaFactory.createForClass<IUser>(User)
-
-const userModel = mongoose.model<IUser>('users', userSchema)
+const UserSchema = SchemaFactory.createForClass<IUser, IUserModel>(User)
+const UserModel = mongoose.model<IUser, IUserModel>('users', UserSchema)
+type UserDocument = ReturnType<typeof UserModel['hydrate']>
 ```
 
 ## Contributing
