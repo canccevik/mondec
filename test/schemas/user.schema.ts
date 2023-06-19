@@ -1,6 +1,15 @@
 import mongoose, { Model } from 'mongoose'
 
-import { Method, MongooseNextFunc, PreHook, Prop, Schema, SchemaFactory, Static } from '../../src'
+import {
+  Method,
+  MongooseNextFunc,
+  PostHook,
+  PreHook,
+  Prop,
+  Schema,
+  SchemaFactory,
+  Static
+} from '../../src'
 
 interface IUser {
   username: string
@@ -50,6 +59,13 @@ class User {
       next(new Error('50 years and over are not allowed to register!'))
     }
     next()
+  }
+
+  @PostHook('findOne')
+  public findOne(user: UserDocument): void {
+    if (!user) {
+      throw new Error('User cannot found!')
+    }
   }
 }
 

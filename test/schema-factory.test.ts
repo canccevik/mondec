@@ -47,4 +47,12 @@ describe('Schema Factory', () => {
 
     await expect(createUser()).rejects.toThrow('50 years and over are not allowed to register!')
   })
+
+  it('should schema post hook works correctly', async () => {
+    const findUser = async (): Promise<void> => {
+      await UserModel.findOne({ username: 'alien', age: 100 })
+    }
+
+    await expect(findUser()).rejects.toThrow('User cannot found!')
+  })
 })
