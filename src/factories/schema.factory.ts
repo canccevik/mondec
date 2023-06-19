@@ -6,9 +6,8 @@ import { TypeMetadataStorage } from '../storages'
 export class SchemaFactory {
   public static createForClass<T>(target: Type<T>): Schema<T> {
     const schemaMetadata = TypeMetadataStorage.getSchemaMetadataByTarget(target)
-    const propertyMetadata = TypeMetadataStorage.getClassFieldsByPredicate(
-      (item) => item.target === target
-    )
+    const propertyMetadata = TypeMetadataStorage.getPropertyMetadataByTarget(target)
+    const methodsMetadata = TypeMetadataStorage.getMethodMetadataByTarget(target)
 
     const schema = new Schema<T>(
       Object.assign(
@@ -19,6 +18,10 @@ export class SchemaFactory {
       ),
       schemaMetadata?.options as SchemaOptions<any>
     )
+
+    methodsMetadata.forEach((metadata) => {
+      schema[metadata.type](metadata.propertyKey as string, metadata.value)
+    })
     return schema
   }
 }
