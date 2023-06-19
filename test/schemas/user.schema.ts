@@ -1,4 +1,10 @@
-import { Prop, Schema } from '../../src'
+import { Method, Prop, Schema } from '../../src'
+
+export interface IUser {
+  username: string
+  age: number
+  getBirthYear(): number
+}
 
 @Schema({
   versionKey: false
@@ -15,4 +21,9 @@ export class User {
     type: Number
   })
   public age!: number
+
+  @Method()
+  public getBirthYear(): number {
+    return new Date().getFullYear() - this.age
+  }
 }
