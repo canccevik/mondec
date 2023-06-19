@@ -1,1 +1,1 @@
-export type MethodType = 'method' | 'static'
+export type MethodType = 'method' | 'static' | 'hook'
