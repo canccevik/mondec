@@ -1,6 +1,6 @@
 {
   "name": "mondec",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "🗄️Create simple and clean class-based Mongoose schemas with TypeScript decorators.",
   "author": "Can Çevik <mazlumcancevik@gmail.com>",
   "license": "MIT",
@@ -21,6 +21,9 @@
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "eslint --fix --ext .js,.ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  },
+  "dependencies": {
+    "mongoose": "^7.3.0"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
@@ -44,9 +47,6 @@
     "url": "https://github.com/canccevik/mondec/issues"
   },
   "homepage": "https://github.com/canccevik/mondec#readme",
-  "dependencies": {
-    "mongoose": "^6.9.0"
-  },
   "publishConfig": {
     "access": "public"
   }

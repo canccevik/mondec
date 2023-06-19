@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose'
+import { Schema, SchemaOptions } from 'mongoose'
 
 import { Type } from '../interfaces'
 import { TypeMetadataStorage } from '../storages'
@@ -17,7 +17,7 @@ export class SchemaFactory {
           return { [item['propertyKey']]: item.options }
         })
       ),
-      schemaMetadata?.options
+      schemaMetadata?.options as SchemaOptions<any>
     )
     return schema
   }
