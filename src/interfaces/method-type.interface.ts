@@ -1,1 +1,1 @@
-export type MethodType = 'method'
+export type MethodType = 'method' | 'static'

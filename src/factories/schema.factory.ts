@@ -4,12 +4,12 @@ import { Type } from '../interfaces'
 import { TypeMetadataStorage } from '../storages'
 
 export class SchemaFactory {
-  public static createForClass<T>(target: Type<T>): Schema<T> {
+  public static createForClass<T = {}, K = {}>(target: Type<T>): Schema<T, K> {
     const schemaMetadata = TypeMetadataStorage.getSchemaMetadataByTarget(target)
     const propertyMetadata = TypeMetadataStorage.getPropertyMetadataByTarget(target)
     const methodsMetadata = TypeMetadataStorage.getMethodMetadataByTarget(target)
 
-    const schema = new Schema<T>(
+    const schema = new Schema<T, K>(
       Object.assign(
         {},
         ...propertyMetadata.map((item) => {
