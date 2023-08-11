@@ -1,6 +1,2 @@
 export * from './schema.decorator'
 export * from './prop.decorator'
-export * from './method.decorator'
-export * from './static.decorator'
-export * from './pre-hook.decorator'
-export * from './post-hook.decorator'

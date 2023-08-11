@@ -1,5 +1,2 @@
 export * from './type.interface'
 export * from './prop-options.interface'
-export * from './method-type.interface'
-export * from './mongoose-middleware.interface'
-export * from './mongoose-next-func.interface'

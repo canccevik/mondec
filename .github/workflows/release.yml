@@ -12,7 +12,7 @@ jobs:
         with:
           version: 8
       - name: Install the dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       - name: Initialize Git user
         run: |
           git config --global user.email "mazlumcancevik@gmail.com"
