@@ -8,7 +8,8 @@
     }
   },
   "git": {
-    "commitMessage": "chore: release v${version}"
+    "commitMessage": "chore: release v${version}",
+    "releaseName": "v${version}"
   },
   "hooks": {
     "before:init": ["git pull", "pnpm run lint", "pnpm run test", "pnpm run build"]
