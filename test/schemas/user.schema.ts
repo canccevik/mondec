@@ -21,4 +21,4 @@ class User {
 
 export const UserSchema = SchemaFactory.createForClass(User)
 export const UserModel = mongoose.model('users', UserSchema)
-export type UserDocument = ReturnType<typeof UserModel['hydrate']>
+export type UserDocument = ReturnType<(typeof UserModel)['hydrate']>
