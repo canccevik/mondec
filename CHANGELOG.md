@@ -1,4 +1,18 @@
-### Changelog
+# Changelog
+
+## [0.3.2](https://github.com/canccevik/mondec/compare/0.2.0...0.3.2) (2023-08-11)
+
+
+### Bug Fixes
+
+* fix eslint error ([f1884bc](https://github.com/canccevik/mondec/commit/f1884bc3b3d4dd04ca41cfa6915949022b2e201b))
+
+
+### Features
+
+* remove method decorators ([e14565c](https://github.com/canccevik/mondec/commit/e14565cf8c9510889f6fb677b590446feaeda79c))
+
+##
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
