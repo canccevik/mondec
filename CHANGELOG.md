@@ -1,4 +1,8 @@
-### Changelog
+# Changelog
+
+## 0.3.4 (2023-08-11)
+
+##
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
