@@ -15,6 +15,7 @@
     "dist/src"
   ],
   "scripts": {
+    "release": "release-it",
     "preinstall": "npx only-allow pnpm",
     "build": "tsc",
     "build:dev": "tsc --watch",
@@ -38,6 +39,7 @@
     "jest": "^28.1.3",
     "mongodb-memory-server": "^8.13.0",
     "prettier": "^2.7.1",
+    "release-it": "^16.1.4",
     "ts-jest": "^28.0.7",
     "typescript": "^4.7.4"
   },
