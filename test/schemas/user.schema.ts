@@ -11,12 +11,12 @@ class User {
     unique: true,
     required: true
   })
-  public username: string
+  public username!: string
 
   @Prop({
     type: Number
   })
-  public age: number
+  public age!: number
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
