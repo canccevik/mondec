@@ -1,6 +1,6 @@
 {
   "name": "mondec",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "🗄️Create simple and clean class-based Mongoose schemas with TypeScript decorators.",
   "author": "Can Çevik <mazlumcancevik@gmail.com>",
   "license": "MIT",
