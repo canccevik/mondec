@@ -1,18 +1,8 @@
-import mongoose, { Schema } from 'mongoose'
-import { MongoMemoryServer } from 'mongodb-memory-server'
+import { Schema } from 'mongoose'
 
-import { UserModel, UserSchema } from './schemas/user.schema'
+import { UserSchema } from './schemas/user.schema'
 
 describe('Schema Factory', () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create()
-    await mongoose.connect(mongoServer.getUri(), { dbName: 'test' })
-
-    await UserModel.create({ username: 'john', age: 20 })
-    await UserModel.create({ username: 'sara', age: 25 })
-    await UserModel.create({ username: 'jack', age: 10 })
-  })
-
   it('should create schema for given class', () => {
     expect(UserSchema instanceof Schema).toBe(true)
   })
