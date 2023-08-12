@@ -12,10 +12,22 @@
 
 ## Installation
 
+Using npm:
+
+```js
+npm install mondec
+```
+
+Using yarn:
+
+```js
+yarn add mondec
+```
+
 Using pnpm:
 
 ```js
-pnpm install mondec
+pnpm add mondec
 ```
 
 You need to enable emitting decorator metadata in your Typescript config. Add these two lines to your tsconfig.json file under the compilerOptions key:
@@ -50,7 +62,7 @@ class User {
 
 const UserSchema = SchemaFactory.createForClass(User)
 const UserModel = mongoose.model('users', UserSchema)
-type UserDocument = ReturnType<typeof UserModel['hydrate']>
+type UserDocument = ReturnType<(typeof UserModel)['hydrate']>
 ```
 
 ## Contributing
